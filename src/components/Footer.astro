@@ -1,0 +1,90 @@
+---
+import { profile } from '../data/profile';
+---
+
+<footer>
+  <div class="colophon">
+    <h2 class="label">About this page</h2>
+    <p>I built this site myself with Astro, TypeScript and plain CSS.</p>
+    <p>
+      <a class="tap" href={profile.links.source} target="_blank" rel="noopener noreferrer">
+        The code is on GitHub
+      </a>
+    </p>
+  </div>
+
+  <div class="line">
+    <p>
+      <a class="tap" href={`mailto:${profile.links.email}`}>{profile.links.email}</a>
+    </p>
+    <p class="meta">{profile.location.city}, {profile.location.country}</p>
+  </div>
+
+  <div class="line end">
+    <p class="name">{profile.name}</p>
+    <ul>
+      <li><a class="tap" href="#experience">Experience</a></li>
+      <li><a class="tap" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: calc(var(--section-space) / 2) 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .colophon {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    max-width: 58ch;
+  }
+
+  .colophon p {
+    color: var(--ink-soft);
+  }
+
+  .line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25rem 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: var(--step--1);
+  }
+
+  .end {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .meta {
+    color: var(--muted);
+  }
+
+  .name {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  ul {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      text-decoration: none;
+      color: var(--muted);
+
+      &:hover {
+        color: var(--green);
+      }
+    }
+  }
+</style>
